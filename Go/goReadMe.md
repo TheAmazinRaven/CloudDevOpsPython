@@ -1,6 +1,8 @@
+## Go ReadMe
+
 5.09.22 After installing Go, following [this](https://go.dev/) tutorial, I learned how to run a go program.
 
-`go run <filename>`
+```go run <filename>```
 
 I created a file called `goPlayground.go` and ran it. :D
 
