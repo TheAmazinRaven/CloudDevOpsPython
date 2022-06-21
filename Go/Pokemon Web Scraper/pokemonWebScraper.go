@@ -1,34 +1,30 @@
 package main
 
 import (
-	"encoding/csv"
+	/* "encoding/csv"
+	"encoding/json" */
+	"fmt"
 	"github.com/gocolly/colly"
-	"log"
+	/* "log"
 	"os"
-)
+	"strconv" */)
+
+type pokemon struct {
+	Name   string `json:"Name"`
+	Type   string `json:"Type"`
+	ImgUrl string `json:"imgurl"`
+}
 
 func main() {
-
-	// creating file
-	fName := "data.csv"
-	// logging errors
-	file, err := os.Create(fName)
-	if err != nil {
-		log.Fatalf("Could not create file, err :%q", err)
-		return
-	}
-
-	// closing the file
-
-	defer file.Close()
-
-	// writing to the CSV file
-
-	writer := csv.NewWriter(file)
-	defer writer.Flush()
 
 	c := colly.newCollector(
 		colly.AllowedDomains("https://bulbapedia.bulbagarden.net"),
 	)
 
+	c.OnHTML("", func(h *colly.HTMLElement) { // i have no idea where to pull the data from?
+		fmt.Println(h.Text("Pokemon Name")) // need to change this to the header element in the HTML
+
+	})
+
+	c.Visit("https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number")
 }
