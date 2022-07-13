@@ -4,6 +4,7 @@ import (
 	/* "encoding/csv"
 	"encoding/json" */
 	"fmt"
+
 	"github.com/gocolly/colly"
 	/* "log"
 	"os"
@@ -17,12 +18,12 @@ type pokemon struct {
 
 func main() {
 
-	c := colly.newCollector(
+	c := colly.NewCollector(
 		colly.AllowedDomains("https://bulbapedia.bulbagarden.net"),
 	)
 
 	c.OnHTML("", func(h *colly.HTMLElement) { // i have no idea where to pull the data from?
-		fmt.Println(h.Text("Pokemon Name")) // need to change this to the header element in the HTML
+		fmt.Println("Pokemon Name " + h.Text) // need to change this to the header element in the HTML
 
 	})
 
