@@ -1,9 +1,12 @@
 package main // declaring a main package
 
-import "fmt" // imporing the format function
-import "rsc.io/quote"
+import (
+	"fmt"
 
-func main() { // executesby default when code is ran
+	"rsc.io/quote"
+) // importing the format function
+
+func main() { // executes by default when code is ran
 	fmt.Println("Hello, World!")
 	fmt.Println(quote.Go())
 }
