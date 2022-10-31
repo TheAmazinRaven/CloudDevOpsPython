@@ -23,4 +23,14 @@ func main() {
 
 	// else if
 
+	playerName := "Jack"
+
+	if playerName == "Raven" {
+		fmt.Println("Hi Raven!")
+	} else if playerName == "Jack" {
+		fmt.Println("Hi Jack!")
+	} else {
+		fmt.Println("Who are you?")
+	}
+
 }
